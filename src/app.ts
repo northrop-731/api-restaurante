@@ -14,9 +14,9 @@ class App {
     }
 
     private middlewares(): void{
-        this.server.use(cors());
+        this.server.use(cors());//biblioteca para filtrar de onde vêm as requests
         this.server.use(express.json());
-        this.server.use(express.urlencoded({ extended: true }));
+        this.server.use(express.urlencoded({ extended: true }));//converter dados de json
     }
 
     private routes(): void {
