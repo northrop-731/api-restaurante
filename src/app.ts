@@ -4,25 +4,23 @@ import cors from "cors";
 import routes from "./routes.js";
 
 class App {
-    
     public server: Express;
 
-    constructor(){
+    constructor() {
         this.server = express();
         this.middlewares();
         this.routes();
     }
 
-    private middlewares(): void{
-        this.server.use(cors());//biblioteca para filtrar de onde vêm as requests
+    private middlewares(): void {
+        this.server.use(cors()); //Biblioteca para filtrar de onde vem as req.
         this.server.use(express.json());
-        this.server.use(express.urlencoded({ extended: true }));//converter dados de json
+        this.server.use(express.urlencoded({ extended: true }));
     }
 
     private routes(): void {
         this.server.use("/api/v1", routes);
     }
-
 }
 
 export default new App().server;
